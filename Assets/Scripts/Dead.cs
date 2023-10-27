@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class StartButton : MonoBehaviour
+public class Dead : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-
     }
 
     // Update is called once per frame
@@ -18,8 +14,14 @@ public class StartButton : MonoBehaviour
     {
         
     }
-    public void Click(){
-       SceneManager.LoadScene(1);
+    private void OnTriggerEnter(Collider otherOBJ){
+        print("Work!");
+        if(otherOBJ.gameObject.name=="PlayBody"){
+            print("dead!");
+            dead();
+        }
     }
-
+    void dead(){
+        SceneManager.LoadScene(2);
+    }
 }

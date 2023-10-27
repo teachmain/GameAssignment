@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class StartButton : MonoBehaviour
+public class Restart : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-
+        Invoke("restart",3f);
     }
 
     // Update is called once per frame
@@ -18,8 +15,7 @@ public class StartButton : MonoBehaviour
     {
         
     }
-    public void Click(){
-       SceneManager.LoadScene(1);
+    void restart(){
+        SceneManager.LoadScene(0);
     }
-
 }
